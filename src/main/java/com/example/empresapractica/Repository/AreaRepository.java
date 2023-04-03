@@ -24,4 +24,5 @@ public interface AreaRepository extends CrudRepository<Areas, Integer> {
     @Query(value = "SELECT COUNT(*) FROM area WHERE name_area = ?;", nativeQuery = true)
     Integer cantidadAreasNombre(@Param("name_area") String nameArea);
 
+    Areas findByIdArea( Integer idArea);
 }

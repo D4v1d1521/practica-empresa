@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 @Service
 public class ServiceUser {
@@ -16,43 +17,89 @@ public class ServiceUser {
 
 
     public User SaveUser(User user){
-        return repository.save(user);
+
+        User user1 = repository.save(user);
+
+        return user1;
     }
 
     public Integer buscarCantidadEmpleados(){
-        return repository.buscarCantidadEmpleados();
+
+        Integer user2 = repository.buscarCantidadEmpleados();
+
+        return user2;
     }
 
     public Integer empleadosActivos(){
-        return repository.empleadosActivos();
+        Integer user3 = repository.empleadosActivos();
+
+        return user3;
     }
 
     public Integer empleadosInactivos(){
-        return repository.empleadosInactivos();
+
+        Integer user4 = repository.empleadosInactivos();
+
+        return user4;
     }
 
     public Integer cantidadEmpleadosPorFecha(String date) throws ParseException {
         String date1 = String.valueOf(new SimpleDateFormat("yyyy-MM-dd").parse(date));
-        return repository.cantidadEmpleadosPorFecha(date1);
+
+        Integer user5 = repository.cantidadEmpleadosPorFecha(date1);
+
+        return user5;
     }
 
     public Integer cantidadEmpleadosProNombre(String name){
-        return repository.cantidadEmpleadosProNombre(name);
+
+        Integer user6 = repository.cantidadEmpleadosProNombre(name);
+        return user6;
     }
 
     public Integer cantidadUsersAndAreaByState(Integer state){
-        return repository.cantidadUsersAndAreaByState(state);
+
+        Integer user7 = repository.cantidadUsersAndAreaByState(state);
+
+        return user7;
     }
 
     public Integer cantidadUserBySalary(Double salary){
-        return repository.cantidadUserBySalary(salary);
+
+        Integer user8 = repository.cantidadUserBySalary(salary);
+
+        return user8;
     }
 
     public Integer cantidadUsuariosPorEdad(Integer age){
-        return repository.cantidadUsuariosPorEdad(age);
+
+        Integer user9 = repository.cantidadUsuariosPorEdad(age);
+
+        return user9;
     }
 
     public Integer cantidadUserPorNumeroDeDocumento(Integer numberDocument){
-        return repository.cantidadUserPorNumeroDeDocumento(numberDocument);
+
+        Integer user10 = repository.cantidadUserPorNumeroDeDocumento(numberDocument);
+
+        return user10;
+    }
+
+    public User updateUser(User user){
+
+        User user11 = repository.save(user);
+        return user11;
+    }
+
+    public  User findById(Integer idUser){
+        User user12 = repository.findByIdUser(idUser);
+
+        return  user12;
+    }
+
+    public Iterable<User> getAll(){
+
+        Iterable<User> user13 = repository.findAll();
+        return user13;
     }
 }

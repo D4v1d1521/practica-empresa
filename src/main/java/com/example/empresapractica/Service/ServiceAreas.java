@@ -8,6 +8,8 @@ import com.example.empresapractica.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ServiceAreas {
 
@@ -22,9 +24,12 @@ public class ServiceAreas {
         try {
             User user = userRepository.findByIdUserAndRoles(idUser, Role.LEADER);
 
+
+
             if (area.getLeaderArea().getIdUser().equals(user.getIdUser()) && user != null) {
 
-                return repository.save(area);
+                Areas area1 = repository.save(area);
+                return area1 ;
             }else{
                 throw new Exception("El usuario no tiene el rol requerido");
             }
@@ -36,19 +41,51 @@ public class ServiceAreas {
     }
 
     public Integer cantidadAreas(){
-        return repository.cantidadAreas();
+
+        Integer areas2 = repository.cantidadAreas();
+
+        return areas2;
     }
 
     public Integer areasActivas(){
-        return repository.areasActivas();
+
+        Integer areas3 = repository.areasActivas();
+
+        return areas3;
     }
 
     public Integer areasInactivas(){
-        return repository.areasInactivas();
+
+        Integer areas4 = repository.areasInactivas();
+        return areas4;
     }
 
     public Integer cantidadAreasNombre(String nameArea){
-        return repository.cantidadAreasNombre(nameArea);
+
+        Integer areas5 = repository.cantidadAreasNombre(nameArea);
+
+        return areas5;
+    }
+
+     public Areas findByIdArea(Integer idArea){
+
+        Areas areas6 = repository.findByIdArea(idArea);
+
+        return areas6;
+     }
+
+     public Areas updateArea(Areas areas){
+
+        Areas areas7 = repository.save(areas);
+
+        return areas7;
+     }
+
+    public Iterable<Areas> getAll(){
+
+        Iterable<Areas> areas8 = repository.findAll();
+
+        return areas8;
     }
 }
 

@@ -38,8 +38,7 @@ public interface UserRepository extends CrudRepository<User, Integer> {
             nativeQuery = true)
     Integer cantidadUserBySalary(@Param("salary") Double salary);
 
-    @Query(value = "SELECT COUNT(*) FROM users WHERE \n" +
-            "DATE_FORMAT(FROM_DAYS(DATEDIFF(NOW(),birth_date)), '%Y') = ?;",
+    @Query(value = "SELECT COUNT(*) FROM user WHERE DATE_FORMAT(FROM_DAYS(DATEDIFF(NOW(),birth_date)), '%Y') = ?;",
             nativeQuery = true)
     Integer cantidadUsuariosPorEdad(@Param("edad") Integer age);
 
@@ -47,5 +46,7 @@ public interface UserRepository extends CrudRepository<User, Integer> {
             nativeQuery = true)
     Integer cantidadUserPorNumeroDeDocumento(@Param("document_number")
                                               Integer numberDocument);
+
+    User findByIdUser(Integer idUser);
 
 }
